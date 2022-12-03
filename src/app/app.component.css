@@ -1,0 +1,105 @@
+div{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.positioN{
+    position: static !important;
+    top: 0 !important;
+}
+#LogoImage{
+    min-height: 40px;
+    max-height: 40px;
+    max-width: 60px;
+    min-width: 60px;
+}
+#LogoImage img{
+    min-height: 70%;
+    animation: daruz infinite  10s ;
+    max-height: 70%;
+    max-width: 70%;
+    border-radius: 10%;
+    min-width: 70%;
+}
+.chartLogo{
+    margin: 0 0 0 10px;
+}
+
+@keyframes daruz {
+    10%{
+        transform: rotate(360deg);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+   
+    
+}
+
+@media (min-width:992px) {
+    
+    .LoginLink{
+        padding-left: 50px;
+        padding-right: 50px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-family: "poppin" sans-serif;
+        border-color: rgb(230, 153, 182) !important;
+        transition: ease-out 0.5s;
+        cursor: pointer;
+    } 
+    .LoginLink:hover{
+        transform: scale(1.09);
+        transition: ease-in 0.5s;
+        background-color:  rgb(230, 153, 182) !important;
+        color: white !important;
+        border-color: white !important;
+    }
+    .nav-link{
+        color: inherit !important;
+        cursor: inherit;
+    }
+
+}
+@media (max-width:992px) {
+    #LogoImage{
+        min-height: 60px;
+        max-height: 60px;
+        max-width: 60px;
+        min-width: 60px;
+        margin:   0 0 20px 0 ;
+    }
+    #LogoImage img{
+        min-height: 80%;
+        max-height: 80%;
+        max-width: 80%;
+        border-radius: 10%;
+        min-width: 80%;
+    }
+    .LoginLink{
+        padding-top: 10px;
+        margin-top: 10px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-family: "poppin" sans-serif;
+        background-color:  rgb(230, 153, 182) !important;
+        transition: ease-out 0.5s;
+        color: #fff !important;
+
+    } 
+    .LoginLink:hover{
+        border-color: rgb(230, 153, 182) !important;
+        transform: scale(1.09);
+        transition: ease-in 0.5s;
+        background-color:  #fff !important;
+        color: black !important;
+        border-width: 3px !important;
+    }
+    .nav-link{
+        color: inherit !important;
+    }
+
+}

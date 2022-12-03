@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div *ngIf="user==undefined">
+        <div class="text-center">Loading......</div>
+    </div>
+    <div *ngIf="user!=undefined" class="col-6 mx-auto shadow-lg">
+        <div class="card">
+            <img [src]="user.avatar_url" alt=""/>
+        </div>
+    </div>
+
+</div>

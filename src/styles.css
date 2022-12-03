@@ -1,0 +1,375 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* .grassroot{
+    background: linear-gradient(rgb(218, 211, 211),rgb(225, 236, 217),rgb(192, 159, 159));
+} */
+
+
+#container-fluid {
+    min-height: 91vh !important;
+    max-height: 91vh !important;
+    height: 91vh !important;
+    border: 1px solid rgb(142, 136, 136);
+    background: linear-gradient(rgb(218, 211, 211), rgb(225, 236, 217), rgb(192, 159, 159)), url("/");
+}
+
+#container-fluid::-webkit-scrollbar {
+    display: none !important;
+}
+
+#container-fluid::-webkit-scrollbar-thumb {
+    display: none !important;
+}
+
+.railWay {
+    display: flex;
+    min-height: 100%;
+    max-height: 100%;
+    height: 100%;
+
+}
+
+.managetheelement{
+    height: 100%;
+
+}
+.managetheelement .btn{
+    background-color: aqua;
+    color: white;
+
+
+}
+.fromselfimageSend{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+}
+.imageSend{
+    min-height: 200px;
+    max-height: 200px;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+.friendsSide {
+    border: 1px solid rgb(72, 70, 70);
+    min-width: 30%;
+    max-width: 30%;
+    width: 30%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+}
+
+.chatSide {
+    min-width: 70%;
+    max-width: 70%;
+    width: 70%;
+    border: 1px solid rgb(66, 64, 64);
+    height: 100%;
+    max-height: 100%;
+    min-height: 100%;
+}
+
+.currentuserspace{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.currentuserspace img{
+    min-height: 100px;
+    max-height: 100px;
+    max-width: 100px;
+    min-width: 100px;
+    border-radius: 50%;
+}
+
+.sendButton:hover{
+    cursor:not-allowed  ;
+}
+.sendButton2:hover{
+    cursor:pointer !important ;
+}
+.btn1{
+    cursor: pointer !important;
+    width: 100%;
+    height: 100%;
+}
+.currentUserPlace {
+    min-height: 20%;
+    max-height: 20%;
+    height: 20%;
+    border: 1px solid rgb(79, 79, 78);
+}
+
+.friendsPlace {
+    overflow-y: scroll !important;
+    min-height: 80%;
+    max-height: 80%;
+    height: 80%;
+    border: 2px solid rgb(61, 60, 59);
+}
+.activee::-webkit-scrollbar-thumb {
+   display: none !important;
+   transition:  ease-in 1s;
+}
+.activee::-webkit-scrollbar {
+   display: none !important;
+   transition:  ease-in 1s;
+}
+#Currentuser12345678987{
+    max-width:80px;
+    max-height:80px;
+    min-height:80px;
+    min-width:80px;
+}
+
+#activeUserIMageSpace34444444444444444{
+    max-width:50px;
+    max-height:50px;
+    min-height:50px;
+    min-width:50px;
+}
+.friendsPlace::-webkit-scrollbar-thumb{
+    width: 10px !important;
+    background-color: rgb(102, 100, 231) !important;
+    color: red !important;
+    border-radius: 10px;
+    transition:  ease-in 1s;
+}
+.friendsPlace::-webkit-scrollbar{
+    width: 5px !important;
+    background-color:rgb(207, 202, 202) !important;
+    transition:  ease-in 1s;
+}
+
+
+.form-control:focus {
+    outline: 0 !important;
+    border: 0 !important;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+.chatIngWith {
+    border: 1px solid olivedrab;
+    min-height: 12%;
+    max-height: 12%;
+    height: 12%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px;
+    gap: 10px ;
+}
+
+.chatContainer{
+    min-height: 80%;
+    max-height: 80%;
+    height: 80%;
+    padding: 10px 10px;
+    overflow-y: scroll;
+    transition:ease-in 5s;
+}
+
+.FromSelf{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction:column;
+   
+}
+.FromSelf div{
+    max-width: 40%;
+    background-color: rgb(95, 185, 95);
+    text-align: start !important;
+    word-wrap: break-word;
+    color: white !important;
+    border-radius: 10px;
+    padding: 10px ;
+    margin: 5px 1px;
+
+}
+.Timage111{
+    font-size:12px;
+}
+.NotFromself{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction:column;
+}
+
+.NotFromself div{
+    max-width: 40%;
+    background-color:rgb(43, 39, 39);
+    text-align: start !important;
+    word-wrap: break-word;
+    color: rgb(243, 241, 241) !important;
+    border-radius: 10px;
+    padding: 10px ;
+    margin: 5px 1px;
+}
+
+.imageSpace{
+    max-width: 200px;
+    min-width: 200px;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    border-radius: 10px;
+    margin-top: 10px;
+    
+}
+.chatContainer::-webkit-scrollbar{
+    width: 7px;
+    background-color: rgb(233, 231, 231);
+}
+
+.chatContainer::-webkit-scrollbar-thumb{
+    width: 7px;
+    background-color:rgb(159, 199, 233);
+    border-radius: 20px;
+}
+
+
+.label_form_control{
+    border-radius: 100%;
+    width: 70px;
+    font-size: 23px;
+}
+
+.form-control{
+    min-height: 95%;
+    max-height: 95%;
+    height: 95%;
+    font-size: 17px !important;
+    font-family: "popin",sans-serif;
+}
+.form-control::first-letter{
+    text-transform: capitalize;
+
+}
+.InputContainer{
+    display: flex;
+    min-height: 8%;
+    max-height: 8%;
+    height: 8%;
+    border: 1px solid dodgerblue;
+}
+
+
+.userList{ 
+    min-height: 70px;
+    max-height: 70px;
+    height: 70px;
+    margin: 10px;
+}
+
+.chatIngWith img{
+    min-height: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    margin-right: auto;
+}
+
+.loading_container{
+    min-height: 89vh;
+    max-height: 89vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+.loading_container img{
+    min-height: 50%;
+    max-height: 50%;
+    width: 60%;
+    border-radius: 10px;
+    margin:  20px auto;
+}
+.userListactive{
+    display: none;
+}
+
+@media (max-width:958px) and (max-width:899px){
+    .loading_container img{
+        min-height: 40%;
+        max-height: 40%;
+        width: 80%;
+        border-radius: 10px;
+        margin:  20px auto;
+    }
+}
+@media (max-width:700px) and (min-width:599px) {
+    .chatSide {
+        display: none;
+       
+    }
+    .friendsSide {
+        border: 1px solid rgb(78, 77, 77);
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+    .userList{
+        display: none !important;
+        border:20px red;
+    }
+    
+    .userListactive{
+        display: block;
+        min-height: 70px;
+        max-height: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+    .loading_container img{
+        min-height: 40%;
+        max-height: 40%;
+        width: 80%;
+        border-radius: 10px;
+        margin:  20px auto;
+    }
+    
+}
+
+@media (max-width:598px)  {
+    .loading_container img{
+        min-height: 40%;
+        max-height: 40%;
+        width: 95%;
+        border-radius: 10px;
+        margin:  20px auto;
+    }
+    .chatSide {
+        display: none;
+       
+    }
+    .friendsSide {
+        border: 1px solid rgb(78, 77, 77);
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+    .userList{
+        display: none !important;
+        border:20px red;
+    }
+    
+    .userListactive{
+        display: block;
+        min-height: 70px;
+        max-height: 70px;
+        height: 70px;
+        margin: 10px;
+    }
+}
+

@@ -1,0 +1,51 @@
+.container-fluid {
+    height: 100%;
+    border: 1px solid violet;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imagediv {
+    min-width: 60px;
+    min-height: 60px;
+    border-radius: 50%;
+
+}
+
+.icon{
+    font-size: 20px;
+    color: aquamarine;
+    
+}
+.displayforme{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 50%;
+    min-width: 50%;
+}
+
+.icon i svg{
+    background-color: azure !important;
+}
+
+.imagediv img {
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+    border-radius: inherit;
+}
+
+.imagediv p {
+    font-weight: 600;
+}
+
+.active {
+    background-color: violet;
+    color: white;
+}

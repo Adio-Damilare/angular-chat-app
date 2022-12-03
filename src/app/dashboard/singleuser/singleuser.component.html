@@ -1,0 +1,9 @@
+<div class="container-fluid " [class]="numb!=undefined&&numb==index?'active':''" (click)="send()">
+    <div class="displayforme">
+        <div class="imagediv"><img [src]="profile.profilePicture" alt="love" /></div>
+        <p>{{profile.username}}</p>
+    </div>
+    <ng-container *ngIf="UnReadMessage().length>0">
+        <b class="text-danger icon"><p matBadge="{{UnReadMessage().length}}"></p> </b>
+    </ng-container>      
+</div>

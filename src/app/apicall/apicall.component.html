@@ -1,0 +1,11 @@
+<div class="container-fluid row">
+    <ng-container class="col-2 " *ngFor="let item of users">
+        <div class="card col-lg-2 col-md-4  col-sm-6 shadow-lg">
+            <img [src]="item.avatar_url" routerLink="{{item.login}}" alt="">
+            <span class="text-muted">{{item?.login}}</span>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="users<=0">
+        <div class="text-center">LOADING..................</div>
+    </ng-container>
+</div>

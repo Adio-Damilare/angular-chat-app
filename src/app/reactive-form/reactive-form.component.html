@@ -1,0 +1,44 @@
+<!-- <div *ngIf="save().length>0">
+    <div *ngFor="let item of save()">
+        <p>{{item?.email}}</p>
+
+    </div>
+
+</div>-->
+<ng-container *ngIf="getCurrentUser()!=undefined&& getCurrentUser()!=undefined&&save() !=undefined ">
+    <div class="currentuserPlace">
+        <img [src]="getCurrentUser().profilePicture" id="profilePicture" alt="love">
+        <div>{{getCurrentUser().username}}</div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <!-- <button (click)="consolCheck() "> check</button> -->
+                <h1 class="text-center">Add friends</h1>
+                <main class="father shadow-lg ">
+                        <ng-container *ngFor="let item of save()">
+                            <div class="border  rounded shadow-lg border" id="mainContianer">
+                                <span class="imageContainer">
+                                    <img [src]="item.profilePicture" alt="name" />
+                                    <span id="name">
+                                        {{item.username}}
+                                    </span>
+                                </span>
+                                <span>
+                                    <button class="btn btn-md btn-primary" (click)="HandleAdd(item.id)">Add
+                                        friend</button>
+                                </span>
+                            </div>
+                        </ng-container>
+                </main>
+            </div>
+        </div>
+    
+    </div>
+</ng-container>
+<ng-container *ngIf="getCurrentUser()==undefined&& getCurrentUser()==undefined&&save() ==undefined ">
+    <div class="loading_container">
+        <img src="/assets/loading.gif" alt="hello"/>
+    </div>
+</ng-container>
+

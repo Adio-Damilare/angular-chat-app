@@ -1,0 +1,25 @@
+.container-fluid{
+    min-height: 91.8vh !important;
+    max-height: 91.8vh !important;
+    height: 91.8vh !important;
+    border: 1px solid red;
+    width: 100%;
+    background: linear-gradient(rgb(218, 211, 211), rgb(225, 236, 217), rgb(192, 159, 159));
+}
+
+.contanier_fluidGreat{
+    border: 2px solid yellow;
+    min-width: 40%;
+    max-width: 40%;
+    margin: 0px auto;
+    max-height: 100%;
+    min-height: 100%;
+}
+
+:host{
+    border: 3px solid blue;
+    
+}
+
+.loremm{
+}

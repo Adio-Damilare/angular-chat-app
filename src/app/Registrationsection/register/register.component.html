@@ -1,0 +1,136 @@
+<div class="container">
+    <div class="row whitecolor">
+        <div class="col-lg-6 col-md-8 col-sm-12 mx-auto px-5" *ngIf="setAvatar">
+            <form class="form py-4 shadow-lg mt-4  rounded" #myForm="ngForm" (submit)="HandleSubmit()">
+                <div>
+                    <h6 class="title text-center my-2">Welcome to <span>DARUZ</span> chat</h6>
+                    <p class="registerpage"> Register Now and chat's with families and friends </p>
+                </div>
+                <div *ngIf="userPassword?.value!=userConPas.value&&(userPassword?.touched||userPassword?.dirty) &&(userConPas?.touched||userConPas?.dirty) && !userPassword?.errors?.['required'] &&!userConPas?.errors?.['required'] &&!userPassword?.['errors']?.['minlength'] &&!userConPas?.['errors']?.['minlength']"
+                    class="alert alert-danger">
+                    <small class="text-danger">Password and confirm password must be same </small>
+                </div>
+                <div *ngIf="message!=''" class="alert alert-danger">
+                    <small *ngIf="message=='Firebase: Error (auth/email-already-in-use).'"> </small>
+                    <small [ngSwitch]="message" class="text-center">
+                        <small *ngSwitchCase="'Firebase: Error (auth/email-already-in-use).'" class="text-danger">
+                            Email exist
+                        </small>
+                        <small *ngSwitchDefault class="text-danger">Registration Failed</small>
+                    </small>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="Username">Username</label>
+                    <input type="text" name="username" id="username" [(ngModel)]="Form.userName" #username="ngModel"
+                        required="true" minlength="5" class="form-control"
+                        [class.is-valid]="username.valid  &&(username.touched||username.dirty)"
+                        [class.is-invalid]="username.invalid &&(username.touched||username.dirty)" />
+                    <div class="alert alert-danger alertErrors"
+                        *ngIf="username?.errors&&(username.touched||username.dirty)">
+                        <small class="text-danger"
+                            *ngIf="username?.['errors']?.['required']&&(username.touched||username.dirty)">Username is
+                            required</small>
+                        <small class="text-danger"
+                            *ngIf="username?.['errors']?.['minlength']&&(username.touched||username.dirty)">Min length
+                            is five characters</small>
+                    </div>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="Usernam.e">E-mail Address</label>  
+                    <input type="email " class="form-control" id="email" minlength="5" required="true" name="email"
+                        [(ngModel)]="Form.email" #emailA="ngModel"
+                        [class.is-valid]="emailA?.valid  &&(emailA?.touched||emailA?.dirty)"
+                        [class.is-invalid]=" emailA?.invalid &&(emailA?.touched||emailA?.dirty)" />
+                    <div class="alert alert-danger alertErrors"
+                        *ngIf="emailA?.['errors']&&(emailA?.touched||emailA?.dirty)">
+                        <small class="text-danger"
+                            *ngIf="emailA?.['errors']?.['required']&&(emailA?.touched||emailA?.dirty)">
+                            Email address is required
+                        </small>
+                        <small class="text-danger"
+                            *ngIf="emailA?.['errors']?.['minlength']&&(emailA?.touched||emailA?.dirty)">
+                            Min length is five characters
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Username">Password</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="Form.password"
+                        id="password" #userPassword="ngModel"
+                        [class.is-valid]="userPassword?.valid  &&(userPassword?.touched||userPassword?.dirty)"
+                        [class.is-invalid]="!userConPas.touched?userPassword?.invalid &&(userPassword?.touched||userPassword?.dirty):userPassword?.invalid &&(userPassword?.touched||userPassword?.dirty) && userConPas.value!=userPassword.value"
+                        required="true" minlength="8" />
+                    <div class="alert alert-danger alertErrors"
+                        *ngIf="userPassword?.['errors']&&(userPassword?.touched||userPassword?.dirty)">
+                        <small class="text-danger"
+                            *ngIf="userPassword?.['errors']?.['required']&&(userPassword?.touched||userPassword?.dirty)">Password
+                            is required</small>
+                        <small class="text-danger"
+                            *ngIf="userPassword?.['errors']?.['minlength']&&(userPassword?.touched||userPassword?.dirty)">The
+                            min lenght is eight character</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Username">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmPassword"
+                        [(ngModel)]="Form.confirmPassword" #userConPas="ngModel"
+                        [class.is-valid]="userConPas?.valid  &&(userConPas?.touched||userConPas?.dirty)"
+                        [class.is-invalid]="userConPas?.invalid &&(userConPas?.touched||userConPas?.dirty)"
+                        required="true" minlength="8" />
+                    <div class="alert alert-danger alertErrors"
+                        *ngIf="userConPas?.['errors']&&(userConPas?.touched||userConPas?.dirty)">
+                        <small class="text-danger"
+                            *ngIf="userConPas?.['errors']?.['required']&&(userConPas?.touched||userConPas?.dirty)">Confirm
+                            Password is required</small>
+                        <small class="text-danger"
+                            *ngIf="userConPas?.['errors']?.['minlength']&&(userConPas?.touched||userConPas?.dirty)">Confirm
+                            Password min length is eight character </small>
+
+                    </div>
+                </div>
+                <div>
+                    <article>Already have an account <a href="" class="text-decoration-none" routerLink="/Login">login</a></article>
+                </div>
+                <div class="form-group mt-3">
+                    <button *ngIf="!loading" class="btn btn-md w-100 btn-success"
+                        [disabled]="userPassword?.value!=userConPas.value||myForm.invalid ">REGISTER</button>
+                    <button *ngIf="loading" class="btn btn-md w-100 btn-success" [disabled]="true">loading...</button>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="!setAvatar">
+            <div class="row showRoww">
+                <div class="col-lg-6 shadow-lg mx-auto princerwo">
+                    <div class="alert alert-danger text-center" style="font-size: 20px;" *ngIf="message!=''">
+                        <small class="text-danger text-center">Fail to upload image</small>
+
+                    </div>
+                    <h5 class="text-center">Upload image as ur profile picture</h5>
+                    <div class="text-center d-flex justify-content-center">
+                        <div class="image_container">
+                            <ng-container *ngIf="src!=''">
+                                <img for="image" class="image" [src]="src" alt="hello">
+                            </ng-container>
+                            <ng-container *ngIf="src==''">
+                                <img for="image" class="image"
+                                    src="https://firebasestorage.googleapis.com/v0/b/angular-first-project-39448.appspot.com/o/istockphoto-1300845620-612x612.jpg?alt=media&token=2920db0e-1fc2-480b-9746-7e06d7c15721"
+                                    alt="hello">
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="label_group">
+                        <input type="file" id="image" (input)="handle($event)" accept="image/*" />
+                        <label for="image" class="btn btn-md btn-primary w-75" *ngIf="src==''">Upload Image</label>
+                        <div *ngIf="src!=''&&!loading" class="d-flex w-100 justify-content-around">
+                            <label for="image" class="btn btn-md btn-primary w-25" >Change Image</label>
+                            <button class="btn btn-md btn-success w-25" 
+                                (click)="HandleClickAvatar()">Done</button>
+                        </div>
+                        <button class="btn btn-md btn-success w-75" *ngIf="src!=''&&loading"
+                            [disabled]="true">Loading....</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

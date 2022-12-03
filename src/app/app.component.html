@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-light positioN">
+    <div class="container-fluid">
+      <a class="navbar-brand text-danger" id="LogoImage" href="#">
+        <img [src]="src" alt=""/>
+        <b class="chartLogo">CHATs </b>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0" *ngIf="!changeNav()">
+          <li class="nav-item border mx-2 LoginLink text-center"   data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" routerLink="Register">
+            <article class="nav-link active" >Create Account</article>
+          </li>
+          <li class="nav-item border LoginLink mx-2 text-center"   data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" routerLink="Login">
+            <article class="nav-link active"  >Login</article>
+          </li>
+        </ul>
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0" *ngIf="changeNav()">
+          <li class="nav-item border mx-2 LoginLink text-center"  routerLink="dashboard" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <article class="nav-link active" >Chats 
+              <ng-container *ngIf="messages()>0">
+                <b matBadge="{{messages()}}">
+                </b>
+              </ng-container>
+            </article>
+          </li>
+          <li class="nav-item border LoginLink mx-2 text-center" routerLink="/" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <article class="nav-link active"  >Add friends</article>
+          </li>
+          <li class="nav-item border LoginLink mx-2 text-center" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="HandleLogout()">
+            <article class="nav-link active"  >Logout</article>
+          </li>
+        </ul>
+        <!-- <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+  </nav>
+<router-outlet></router-outlet>

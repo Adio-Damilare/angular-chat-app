@@ -1,0 +1,114 @@
+<ng-container *ngIf="handleCurrentUser()&&HandleFriends()&&friends">
+    <div class="container-fluid" id="container-fluid">
+        <div class="railWay shadow-lg">
+            <div class="friendsSide">
+                <div class="currentUserPlace">
+                    <div class="currentuserspace">
+                        <img [src]="handleCurrentUser().profilePicture" id="Currentuser12345678987" alt="" />
+                        <b>{{handleCurrentUser().username}}</b>
+                    </div>
+                </div>
+                <div class="friendsPlace" [class.activee]="mounseoverIt" (mouseover)="mounseoverIt = false"
+                    (mouseleave)="mounseoverIt = true">
+                    <ng-container *ngFor="let singleuser of friends ;let i =index">
+                        <div class="userList">
+                            <app-singleuser (sendMessage)="recievemessage($event)" (sendIndex)="setindex($event)"
+                                [user]="singleuser" [numb]="numb" [index]="i"> </app-singleuser>
+                        </div>
+                        <div class="userListactive" routerLink="/user/{{singleuser}}">
+                            <app-singleuser (sendMessage)="recievemessage($event)" (sendIndex)="setindex($event)"
+                                [user]="singleuser" [numb]="numb" [index]="i"> </app-singleuser>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <ng-container *ngIf="allmessages()!=undefined &&activeChatUser!=undefined">
+                <div class="chatSide">
+                    <div class="chatIngWith">
+                        <div class="">
+                            <img [src]="activeChatUser.profilePicture" id="activeUserIMageSpace34444444444444444" [alt]="activeChatUser.username" />
+                            <b>{{activeChatUser.username}}</b>
+                        </div>
+                    </div>
+                    <div class="chatContainer" id="chatContainer" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                        <div  *ngIf="!imageUpload">
+                            <ng-container *ngFor="let item of allmessages()">
+                                <div [class]="item.fromSelf?'FromSelf':'NotFromself'">
+                                    <ng-container *ngIf="item.message">
+                                        <div>
+                                        <p class="" [class.text-end]="item.fromSelf">
+                                           {{item.message}}
+                                        </p>
+                                        <article  class="text-end Timage111">{{TimeAgo(item.time)}}</article>
+                                    </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="!item.message">
+                                        <img [src]="item.image" class="imageSpace" alt="hrr"/>
+                                        <article  class="text-end Timage111">{{TimeAgo(item.time)}}</article>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <ng-container *ngIf="imageUpload">
+                            <div class="managetheelement">
+                                <div class="fromselfimageSend">
+                                    <img [src]="imageSend" class="imageSend" alt=""/>
+                                </div>
+                                <button class="btn" (click)="SendImage()">Send</button>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <ng-container *ngIf="!imageUpload">
+                    <form class="InputContainer" #myForm="ngForm" (ngSubmit)="Send()">
+                        <input type="file" class="d-block d-none" (input)="InputImage($event)"  accept="image/*" name="" id="SendImage">
+                        <label for="SendImage" class="label_form_control btn btn1" ><i class="bi bi-file-earmark-image"></i></label>
+                        <textarea type="text" class="form-control input" name="message"
+                            [(ngModel)]="messageForm.message" required #message="ngModel"
+                            placeholder="message here"></textarea>
+                        <div [ngClass]="myForm.invalid?'sendButton':'sendButton2'">
+                            <button class="btn sendButton btn-lg btn-info btn1"
+                            [disabled]="myForm.invalid && message.invalid">send</button>
+                        </div>
+                    </form>
+                </ng-container>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="allmessages()==undefined &&activeChatUser==undefined">
+               <div class="chatSide">
+
+              </div>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!handleCurrentUser()&&!HandleFriends()&&!friends">
+    <div class="container-fluid">
+        <div class="railWay shadow-lg">
+            <div class="friendsSide">
+                <div class="currentUserPlace">
+                    <div class="currentuserspace">
+                        <img src="" id="Currentuser12345678987" alt="" />
+                        <b></b>
+                    </div>
+                </div>
+                <div class="friendsPlace" [class.activee]="mounseoverIt" (mouseover)="mounseoverIt = false"
+                    (mouseleave)="mounseoverIt = true">
+                   
+                </div>
+            </div>
+           
+               <div class="chatSide">
+
+              </div>
+            <!-- </ng-container> -->
+        </div>
+    </div>
+    <div class="typeWriter"></div>
+    <ngx-spinner
+bdOpacity="0.9"
+size="default"
+color="#581f87"
+type="ball-pulse-sync"
+></ngx-spinner>
+</ng-container>
